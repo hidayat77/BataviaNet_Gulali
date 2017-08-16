@@ -499,4 +499,5 @@ public partial class _admin_setup_general : System.Web.UI.Page
     {
         view("1", pagesum.Text);
     }
+
 }

@@ -50,9 +50,59 @@
                                             </li>
                                         </ul>
                                         <div style="padding: 10px !important;">
-                                            isi
+                                            <!-- isi -->
+                                            <!-- Menu Import -->
+                                            <div>
+                                                <asp:UpdatePanel runat="server" ID="updatePanel1" UpdateMode="Conditional">
+                                                    <ContentTemplate>
+                                                        <div class="col-lg-7">
+                                                            <div id="Div1" class="form-horizontal" role="form" runat="server">
+                                                                <div class="form-group">
+                                                                    <label class="col-md-4 control-label">File Excel</label>
+                                                                    <div class="col-md-8">
+                                                                        <asp:FileUpload ID="fileUpl" runat="server"></asp:FileUpload>
+                                                                        <%--<input type="file" id="file" runat="server" class="txt" name="file" />--%>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-md-4 control-label">&nbsp;</label>
+                                                                    <div class="col-md-8">
+                                                                        <div class="inputwrapperbutton" style="width: 95%;">
+                                                                            <asp:Button ID="save" runat="server" Style="border: 1px solid #188ae2 !important; background-color: rgba(24, 138, 226, 0.15) !important; color: #188ae2 !important; border-radius: 2px; padding: 6px 14px;" Text="Save" name="Save" OnClick="save_Click" AccessKey="s" Visible="False" />
+                                                                            <asp:Button ID="clean" runat="server" Style="border: 1px solid #f9c851 !important; background-color: rgba(249, 200, 81, 0.15) !important; color: #f9c851 !important; border-radius: 2px; padding: 6px 14px;" Text="Clean" name="Clean" OnClick="clean_Click" AccessKey="s" Visible="False" />
+
+                                                                            <asp:Button ID="import" runat="server" Style="border: 1px solid #188ae2 !important; background-color: rgba(24, 138, 226, 0.15) !important; color: #188ae2 !important; border-radius: 2px; padding: 6px 14px;" Text="Import" name="Import" OnClick="import_Click" AccessKey="s" />
+                                                                            <asp:Button ID="back" runat="server" Style="border: 1px solid #f9c851 !important; background-color: rgba(249, 200, 81, 0.15) !important; color: #f9c851 !important; border-radius: 2px; padding: 6px 14px;" Text="Cancel" name="Cancel" OnClick="back_Click" AccessKey="s" />
+                                                                            <%--<asp:Button ID="Cancel" runat="server" Text="Cancel" name="cancel" AccessKey="s"
+                                                                    OnClick="Cancel_Click" />--%>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </ContentTemplate>
+                                                    <Triggers>
+                                                        <asp:PostBackTrigger ControlID="save" />
+                                                        <asp:PostBackTrigger ControlID="clean" />
+                                                        <asp:PostBackTrigger ControlID="Import" />
+                                                        <asp:PostBackTrigger ControlID="back" />
+                                                    </Triggers>
+                                                </asp:UpdatePanel>
+                                            </div>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row" style="overflow: auto;">
+                                <div class="col-sm-12">
+                                    <asp:Literal ID="table" runat="server" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <asp:Literal ID="lable" runat="server" />
+                                    <asp:Literal ID="litHdn" runat="server" Visible="False" />
                                 </div>
                             </div>
                         </div>
@@ -67,4 +117,3 @@
 </body>
 <ucscript:script ID="script" runat="server" />
 </html>
-
