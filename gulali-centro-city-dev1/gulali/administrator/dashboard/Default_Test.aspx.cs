@@ -176,6 +176,8 @@ absen_izin_reguler			: {7} {0}
 absen_izin_shift            : {8} {0}
 absen_sakit_reguler         : {9} {0}
 absen_sakit_shift           : {10} {0}
+JamKerja_Efektif_Reguler    : {11} {0}
+JamKerja_Efektif_Shift      : {12} {0}
 ", "<br/>"//Environment.NewLine
  , GULALI.Absence.Absence_m.AbsenceEmployeeStatic.absen_jmlkali_telat_reg.ToString()
  , strTelatReg
@@ -187,6 +189,8 @@ absen_sakit_shift           : {10} {0}
  , GULALI.Absence.Absence_m.AbsenceEmployeeStatic.absen_izin_shift.ToString()
  , GULALI.Absence.Absence_m.AbsenceEmployeeStatic.absen_sakit_reguler.ToString()
  , GULALI.Absence.Absence_m.AbsenceEmployeeStatic.absen_sakit_shift.ToString()
+ , GULALI.Absence.Absence_f.Get_JamKerja_Efektif("3", "0", dateFrom, dateTo)
+ , GULALI.Absence.Absence_f.Get_JamKerja_Efektif("3", "1", dateFrom, dateTo)
  );
         lit_test1.Text = sbQueryResult.ToString();
     }

@@ -692,5 +692,36 @@ B.[Leave_RequestDateFrom] BETWEEN Convert(datetime,'{2}',103) AND Convert(dateti
             //Akhirnya simpan di Object
             Absence_m.AbsenceEmployeeObj(dtEmp);
         }
+
+        public static Int32 Get_JamKerja_Efektif(string strEmpId, string strSchRoleStatus, DateTime dateFrom, DateTime dateTo)
+        {
+            Int32 iRet = 0;
+
+            StringBuilder sbQuery = new StringBuilder();
+            sbQuery.AppendFormat(@"
+            SELECT Sum( Datediff( minute, a.absence_scan_in, a.absence_scan_out ) ) JML_Menit
+            FROM   [Gulali_HRIS].[dbo].[TBL_ABSENCE_IMPORT] a
+                   INNER JOIN ( SELECT DISTINCT c.schedule_role_status,
+                                                b.employee_id
+                                FROM   [Gulali_HRIS].[dbo].TBL_SCHEDULE_KALENDAR b
+                                       INNER JOIN [Gulali_HRIS].[dbo].TBL_SCHEDULE_ROLE c
+                                               ON c.schedule_role_id = b.schedule_role_id
+                                WHERE  b.employee_id = '{0}' ) sch
+                           ON sch.employee_id = a.absence_emp_id
+            WHERE  a.absence_emp_id = '{0}' AND
+                   ( sch.schedule_role_status = {1} ) AND
+                   a.absence_date BETWEEN CONVERT( DATETIME, '{2}', 103 ) AND CONVERT( DATETIME, '{3}', 103 ) 
+            ", strEmpId, strSchRoleStatus, dateFrom.ToString("dd/MM/yyyy"), dateTo.ToString("dd/MM/yyyy"));
+            try
+            {
+                iRet = Db.SingleInteger(sbQuery.ToString());
+            }
+            catch
+            {
+                iRet = 0;
+            }
+
+            return iRet;
+        }
     }
 }
