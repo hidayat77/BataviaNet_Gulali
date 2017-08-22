@@ -51,7 +51,7 @@
                                 </div>
                                 <div>
                                     <p> Test Pakai data User Devita (Emp_Id = 3)</p>
-                                    <asp:Button ID="btnTest1" runat="server" OnClick="btnTest1_Click" Text="Button" />
+                                    <asp:Button ID="btnTest1" runat="server" OnClick="btnTest1_Click" Text="Test Fungsi Absen" />
                                     <br />
                                     <br />
                                     <asp:Literal ID="lit_test1" runat="server"></asp:Literal>
@@ -59,7 +59,7 @@
                                     <br />
 
                                     <br />
-                                    <asp:Button ID="btnTest2" runat="server" OnClick="btnTest2_Click" Text="Button" />
+                                    <asp:Button ID="btnTest2" runat="server" OnClick="btnTest2_Click" Text="Test Fungsi User Details" />
                                     <br />
                                     <br />
                                     <asp:Literal ID="lit_test2" runat="server"></asp:Literal>

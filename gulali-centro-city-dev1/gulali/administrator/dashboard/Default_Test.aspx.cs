@@ -161,7 +161,9 @@ public partial class _DefaultTest : System.Web.UI.Page
 
         TimeSpan ts_TelatReg = TimeSpan.FromMinutes(GULALI.Absence.Absence_m.AbsenceEmployeeStatic.absen_menit_telat_reg);
         TimeSpan ts_TelatShift = TimeSpan.FromMinutes(GULALI.Absence.Absence_m.AbsenceEmployeeStatic.absen_menit_telat_shift);
-
+        //string strTelatReg = ts_TelatReg.ToString(@"dd\.hh\:mm", CultureInfo.InvariantCulture);
+        string strTelatReg = ts_TelatReg.Days.ToString() + "." + ts_TelatReg.Hours.ToString() + ":" + ts_TelatReg.Minutes.ToString();
+        string strTelatShift = ts_TelatShift.Days.ToString() + "." + ts_TelatShift.Hours.ToString() + ":" + ts_TelatShift.Minutes.ToString();
         StringBuilder sbQueryResult = new StringBuilder();
         sbQueryResult.AppendFormat(@"
 absen_jmlkali_telat_reg     : {1} {0}
@@ -176,9 +178,9 @@ absen_sakit_reguler         : {9} {0}
 absen_sakit_shift           : {10} {0}
 ", "<br/>"//Environment.NewLine
  , GULALI.Absence.Absence_m.AbsenceEmployeeStatic.absen_jmlkali_telat_reg.ToString()
- , ts_TelatReg.ToString(@"hh\:mm")
+ , strTelatReg
  , GULALI.Absence.Absence_m.AbsenceEmployeeStatic.absen_jmlkali_telat_shift.ToString()
- , ts_TelatShift.ToString(@"hh\:mm")
+ , strTelatShift
  , GULALI.Absence.Absence_m.AbsenceEmployeeStatic.absen_cuti_reguler.ToString()
  , GULALI.Absence.Absence_m.AbsenceEmployeeStatic.absen_cuti_shift.ToString()
  , GULALI.Absence.Absence_m.AbsenceEmployeeStatic.absen_izin_reguler.ToString()

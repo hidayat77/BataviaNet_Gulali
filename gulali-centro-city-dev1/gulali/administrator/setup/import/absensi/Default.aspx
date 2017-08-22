@@ -48,13 +48,13 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div id="basicwizard2" class=" pull-in">
-                                        <ul>                                            
+                                        <ul>
                                             <li class="active">
                                                 <asp:Literal ID="tab_absensi" runat="server"></asp:Literal>
                                             </li>
                                             <li class="">
                                                 <%--<asp:Literal ID="tab_datakaryawan" runat="server"></asp:Literal>--%>
-                                                <a onclick="goToURL(); return false;">DataKaryawan</a>
+                                                <a href="#DataKaryawan" onclick="goToURL(); return false;">DataKaryawan</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -75,7 +75,7 @@
                                         <div style="padding: 10px !important;">
                                             <div class="col-lg-7">
                                                 <div id="Div1" class="form-horizontal" role="form" runat="server">
-                                                    <div class="form-group">
+                                                    <div id="formfile" runat="server" class="form-group">
                                                         <label class="col-md-4 control-label">File Excel</label>
                                                         <div class="col-md-8">
                                                             <asp:FileUpload ID="fileUpl" runat="server"></asp:FileUpload>
@@ -160,6 +160,32 @@
                                                         <td style="text-align: center;">showing
 
                                                                         <asp:TextBox ID="pagesum" runat="server" Width="25px" Text="50" OnTextChanged="page_enter" AutoPostBack="false" Enabled="false" />
+                                                            per page
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div style="text-align: right; padding-left: 50%; padding-bottom: 10px;" id="paggingImp" runat="server" visible="false">
+                                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                    <tr>
+                                                        <td style="text-align: center;">
+                                                            <asp:Button class="btn" ID="prevImp2" runat="server" OnClick="prevImp2_Click" Text="<<" />
+                                                            <asp:Button class="btn" ID="prevImp" runat="server" OnClick="prevImp_Click" Text="<" />
+                                                        </td>
+                                                        <td style="text-align: center;">page
+
+                                                                        <asp:TextBox ID="pagenumImp" runat="server" Width="25px" OnTextChanged="page_enter_imp" />
+                                                            of
+
+                                                                        <asp:Literal ID="count_pageImp" runat="server" />
+                                                        </td>
+                                                        <td style="text-align: center;">
+                                                            <asp:Button class="btn" ID="nextImp" runat="server" OnClick="nextImp_Click" Text=">" />
+                                                            <asp:Button class="btn" ID="nextImp2" runat="server" OnClick="nextImp2_Click" Text=">>" />
+                                                        </td>
+                                                        <td style="text-align: center;">showing
+
+                                                                        <asp:TextBox ID="pagesumImp" runat="server" Width="25px" Text="50" OnTextChanged="page_enter_imp" AutoPostBack="false" Enabled="false" />
                                                             per page
                                                         </td>
                                                     </tr>
